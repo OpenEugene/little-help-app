@@ -32,7 +32,7 @@ namespace LittleHelpBookApp.Client
                 new MBAnimatedNavigationManagerServiceConfiguration()
                 {
                     ApplyAnimation = true,
-                    AnimationTime = 300
+                    AnimationTime = 33
                 }
             );
 
