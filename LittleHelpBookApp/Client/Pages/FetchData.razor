@@ -12,27 +12,24 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+    <MBDataTable Items="@forecasts"
+                 Context="item"
+                 class="my-data-table">
+        <TableHeader>
+            <th class="mdc-data-table__header-cell header-bold" role="columnheader" scope="col">Date</th>
+            <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric header-bold" role="columnheader" scope="col">Temp. (C)</th>
+            <th class="mdc-data-table__header-cell mdc-data-table__header-cell--numeric header-bold" role="columnheader" scope="col">Temp. (F)</th>
+            <th class="mdc-data-table__header-cell header-bold" role="columnheader" scope="col">Summary</th>
+        </TableHeader>
+        <TableRow>
+            <td class="mdc-data-table__cell">@item.Date.ToShortDateString()</td>
+            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">@item.TemperatureC</td>
+            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">@item.TemperatureF</td>
+            <td class="mdc-data-table__cell">@item.Summary</td>
+        </TableRow>
+    </MBDataTable>
+
 }
 
 @code {

@@ -1,3 +1,4 @@
+using Material.Blazor;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,22 @@ namespace LittleHelpBookApp.Client
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddMBServices(
+                toastServiceConfiguration: new MBToastServiceConfiguration()
+                {
+                    InfoDefaultHeading = "Info",
+                    SuccessDefaultHeading = "Success",
+                    WarningDefaultHeading = "Warning",
+                    ErrorDefaultHeading = "Error",
+                    Timeout = 5000,
+                    MaxToastsShowing = 5
+                },
+                new MBAnimatedNavigationManagerServiceConfiguration()
+                {
+                    ApplyAnimation = true,
+                    AnimationTime = 300
+                }
+            );
 
             await builder.Build().RunAsync();
         }
