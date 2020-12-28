@@ -1,21 +1,42 @@
 ﻿/*
 * App layout styling
 */
+
+@font-face {
+    font-family: "Montebello Rounded";
+    src: url("Montebello-Rounded.woff");
+}
+@font-face {
+    font-family: "Montebello Sans";
+    src: url("Montebello-Sans.woff");
+}
+@font-face {
+    font-family: "Montebello Script";
+    src: url("Montebello-Script.woff");
+}
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 app {
 display: flex;
 height: 100%;
 }
 
+.mdc-top-app-bar__title {
+    font-family: 'Montebello Script', Helvetica, Arial, sans-serif !important;
+}
+
 .mdc-drawer {
-border-radius: 0;
+    border-radius: 0;
 }
 
 .mdc-drawer-app-content {
 flex: auto;
 overflow: auto;
+}
+
+h1,h2,h3,h4 {
+    font-family: "Montebello Rounded", Helvetica, Arial, sans-serif;
 }
 
 .main-content {
@@ -41,7 +62,7 @@ margin-right: 2rem;
 }
 
 .app-bar {
-position: absolute !important;
+    position: absolute !important;
 }
 /*
 Blazor Error UI
